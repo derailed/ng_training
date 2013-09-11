@@ -8,4 +8,5 @@ development:
   database: brog_dev
 
 test:
+  <<: *common  
   database: brog_test
