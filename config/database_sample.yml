@@ -1,0 +1,11 @@
+common: &common
+  adapter: mysql2
+  encoding: utf8
+  username: root
+  
+development:
+  <<: *common
+  database: brog_dev
+
+test:
+  database: brog_test

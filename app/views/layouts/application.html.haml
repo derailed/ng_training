@@ -1,0 +1,28 @@
+!!! 5
+%html{ lang: 'en' }
+  %head
+    %title Brog
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => false
+    = javascript_include_tag "application", "data-turbolinks-track" => false
+    = csrf_meta_tags
+
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %button.bth.btn-navbar{ type: :button, "data-toggle" => :collapse, "data-target" => ".nav-collapse" }
+            %icon-bar
+            %icon-bar
+            %icon-bar
+          =link_to "The Brog", root_path, class: "brand"
+          %div.nav-collapse.collapse.pull-right
+            %ul.nav
+              %li
+                =link_to raw("<i class='icon-home'></i> Home"), root_path
+              %li
+                =link_to raw("<i class='icon-quote-left'></i> Articles"), blog_posts_path
+
+    #wrap
+      %div.container
+        = yield
+        #push

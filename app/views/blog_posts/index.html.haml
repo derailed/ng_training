@@ -1,0 +1,31 @@
+.row-fluid
+  .row.span12
+    = link_to 'New post', new_blog_post_path, class: "btn btn-default pull-right"
+
+  .row.span12
+    %h1 Bro's happenings...
+
+  %ul.span12.posts
+    - @blog_posts.each do |blog_post|
+      %li
+        %h2
+          %span.icon-pencil
+          = blog_post.title
+        
+        .timestamp  
+          %h4= time_ago_in_words( blog_post.created_at )
+        
+        .content.rounded= blog_post.content
+        
+        .controls
+          = link_to 'Edit', edit_blog_post_path(blog_post), class: "btn"
+          = link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn"
+          
+        %div.comments{ 'ng-controller' => 'CommentsCtrl'}
+          .summary{ 'ng-click' => 'toggle_comments()'}
+            %span.icon-comments 
+            = blog_post.comments.count 
+            %span= 'comment'.pluralize( blog_post.comments.count)
+          %ul.comments{ 'ng-show' => 'comments_visible' }
+            = render blog_post.comments
+            = render partial: 'comments/form', locals: { blog_post: blog_post }
