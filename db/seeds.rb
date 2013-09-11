@@ -1,7 +1,8 @@
+require 'ffaker'
 require 'factory_girl'
 
 FactoryGirl.definition_file_paths = [File.expand_path( "spec/factories", Rails.root )]
-# FactoryGirl.find_definitions 
+FactoryGirl.find_definitions 
 
 BlogPost.delete_all
 

@@ -18,8 +18,8 @@ gem 'turbolinks'             , '~> 1.3.0'
 gem 'jbuilder'               , '~> 1.2'
 
 group :test do
-  gem 'rspec-rails'            , '~> 2.14.0'  
-  gem 'shoulda-matchers'       , '~> 1.4.2'  
+  gem 'rspec-rails'            , '~> 2.14.0'
+  gem 'shoulda-matchers'       , '~> 1.4.2'
   gem 'ffaker'                 , '~> 1.18.0'
   gem 'factory_girl_rails'     , '~> 4.2.1'
   gem 'database_cleaner'       , '~> 1.1.1'
@@ -27,7 +27,7 @@ group :test do
   gem 'rb-fsevent'
   gem 'guard-rspec'
   gem 'guard-zeus'
-  gem 'guard-bundler'  
+  gem 'guard-bundler'
 end
 
 group :doc do
