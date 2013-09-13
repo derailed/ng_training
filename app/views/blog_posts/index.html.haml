@@ -28,8 +28,8 @@
                   
           %div.comments{ 'ng-controller' => 'CommentsCtrl'}
             .summary{ 'data-id'=>blog_post.id }
-              %span.icon-comments 
-              = blog_post.comments.size
+              %span.icon-comments
+              %span.comment-count{ 'data-id'=>blog_post.id }= blog_post.comments.size
               %span= 'comment'.pluralize( blog_post.comments.size)
             %ul.comments{ 'data-id'=>blog_post.id, style:'display:none' }
               = render blog_post.comments.sort { |a,b| b.created_at <=> a.created_at }

@@ -1,6 +1,11 @@
 = form_for([blog_post, blog_post.comments.build]) do |f|
   = f.hidden_field :blog_post_id
   .input-append
-    = f.text_area :content, id: "appendedInputButton", size: "40x5"
+    = f.text_area :content, 
+        id:          "appendedInputButton",
+        class:       "comment-field",
+        rows:        "3", 
+        placeholder: "Enter your comment",
+        autofocus:   true
     %button.btn.btn.mini
       %i.icon-bullhorn

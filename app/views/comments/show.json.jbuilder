@@ -1,0 +1,1 @@
+json.(@comment, :id, :content, :blog_post_id, :created_at )
