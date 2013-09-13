@@ -14,7 +14,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require underscore
-//= require unstable/angular
-//= require unstable/angular-resource
 //= require_tree .

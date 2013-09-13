@@ -1,31 +1,36 @@
 .row-fluid
-  .row.span12
+  .row.heading.span12
+    %h1.span10 Bro's happenings...
     = link_to 'New post', new_blog_post_path, class: "btn btn-default pull-right"
-
+      
   .row.span12
-    %h1 Bro's happenings...
-
-  %ul.span12.posts
-    - @blog_posts.each do |blog_post|
-      %li
-        %h2
-          %span.icon-quote-left
-          = blog_post.title
+    %ul.posts
+      - @blog_posts.each do |blog_post|
+        %li
+          .row
+            %h2.span10
+              %span.icon-quote-left
+              = majusculize blog_post.title
+      
+            .controls.span2
+              = link_to content_tag( :i, "", class: 'icon-pencil'), edit_blog_post_path(blog_post), 
+                class:  "btn"
+              = link_to content_tag( :i, "", class: 'icon-trash'), blog_post, 
+                method: :delete, 
+                data:   {confirm: 'Are you sure?'}, 
+                class:  "btn"
+             
+          .row 
+            .timestamp= time_ago_in_words( blog_post.created_at )
         
-        .timestamp  
-          %h4= time_ago_in_words( blog_post.created_at )
-        
-        .content.rounded= blog_post.content
-        
-        .controls
-          = link_to 'Edit', edit_blog_post_path(blog_post), class: "btn"
-          = link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn"
-          
-        %div.comments{ 'ng-controller' => 'CommentsCtrl'}
-          .summary{ 'ng-click' => 'toggle_comments()'}
-            %span.icon-comments 
-            = blog_post.comments.count 
-            %span= 'comment'.pluralize( blog_post.comments.count)
-          %ul.comments{ 'ng-show' => 'comments_visible' }
-            = render blog_post.comments
-            = render partial: 'comments/form', locals: { blog_post: blog_post }
+          .row
+            .content.rounded= blog_post.content
+                  
+          %div.comments{ 'ng-controller' => 'CommentsCtrl'}
+            .summary{ 'data-id'=>blog_post.id }
+              %span.icon-comments 
+              = blog_post.comments.size
+              %span= 'comment'.pluralize( blog_post.comments.size)
+            %ul.comments{ 'data-id'=>blog_post.id, style:'display:none' }
+              = render blog_post.comments.sort { |a,b| b.created_at <=> a.created_at }
+              = render partial: 'comments/form', locals: { blog_post: blog_post }

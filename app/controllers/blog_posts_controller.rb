@@ -2,7 +2,7 @@ class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @blog_posts = BlogPost.sort_recent
+    @blog_posts = BlogPost.includes(:comments).sort_recent
   end
 
   def new
