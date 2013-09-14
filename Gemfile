@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'blog'                   , path: 'engines/blog'
-
 gem 'rails'                  , '4.0.0'
 
 gem 'mysql2'                 , '~> 0.3.13'

@@ -14,7 +14,7 @@ feature 'Articles' do
     let!(:article) { create(:blog_post, title: 'Fred', content: 'Blee' ) }    
     
     scenario 'I want to create a new article' do
-      visit blog_ng.blog_posts_path
+      visit blog_posts_path
     
       click_link 'New post'
       fill_in 'Title'  , with: "Cool dude!"
@@ -25,7 +25,7 @@ feature 'Articles' do
     end
     
     scenario 'I want to edit an article' do
-      visit blog_ng.blog_posts_path          
+      visit blog_posts_path          
       expect(page).to have_content( "FRED" )        
       
       click_link( "ed_blog_post_#{article.id}" )
@@ -36,7 +36,7 @@ feature 'Articles' do
     end
     
     scenario 'I want to delete an article' do
-      visit blog_ng.blog_posts_path          
+      visit blog_posts_path          
       expect(page).to have_content( "FRED" )
       
       click_link( "del_blog_post_#{article.id}" )
