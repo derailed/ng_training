@@ -9,13 +9,13 @@
           %li= msg
 
   .field
-    = f.label :title
-    = f.text_field :title, placeholder: 'Your title', autofocus: true
+    =f.label :title
+    =f.text_field :title, placeholder: 'Your title', autofocus: true
 
   .field
-    = f.label :content
-    = f.text_area :content, placeholder: 'Your article'
+    =f.label :content
+    =f.text_area :content, placeholder: 'Your article'
 
   .actions
-    = f.submit "Update", class: "btn"
-    = link_to 'Cancel', blog_posts_path
+    =f.submit "Update", class: "btn"
+    =link_to 'Cancel', blog_posts_path
