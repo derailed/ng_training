@@ -16,6 +16,7 @@ gem 'turbolinks'             , '~> 1.3.0'
 gem 'jbuilder'               , '~> 1.2'
  
 group :test do
+  gem 'fuubar'                 , '~> 1.2.1'
   gem 'rspec-rails'            , '~> 2.14.0'
   gem 'shoulda-matchers'       , '~> 1.4.2'
   gem 'ffaker'                 , '~> 1.18.0'

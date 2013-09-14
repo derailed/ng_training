@@ -1,53 +1,58 @@
 require 'spec_helper'
 
 describe BlogPostsController do
-
-  it 'list all blog posts correctly' do
-    get :index
+  context "when viewing" do
+    it 'list all blog posts correctly' do
+      get :index
     
-    response.should render_template :index
-    assigns(:blog_posts).should == BlogPost.sort_recent
+      expect(response).to            render_template :index
+      expect(assigns :blog_posts).to eq BlogPost.sort_recent
+    end
   end
   
-  it 'creates a new blog post correctly' do
-    get :new
+  context "when creating" do  
+    it 'creates a new blog post correctly' do
+      get :new
     
-    response.should render_template :new
-    assigns(:blog_post).should_not be_nil
-  end
+      expect(response).to               render_template :new
+      expect(assigns :blog_post).to_not be_nil
+    end
 
-  it "save a brand new blog post correctly" do
-    expect {
-      post :create, blog_post: { title: "Test me", content: "Test" }
-    }.to change { BlogPost.count}
-    
-    response.should redirect_to blog_posts_path
-    res = assigns(:blog_post)
-    res.title.should   == "Test me"
-    res.content.should == "Test"
-  end  
+    it "save a brand new blog post correctly" do
+      expect {
+        post :create, blog_post: { title: "Test me", content: "Test" }
+      }.to change { BlogPost.count}
+      res = assigns(:blog_post)
+          
+      expect(response).to    redirect_to blog_posts_path
+      expect(res.title).to   eq "Test me"
+      expect(res.content).to eq "Test"
+    end  
+  end
   
-  describe "editing a blog post" do
+  context "when editing" do
     let(:blog_post) { create :blog_post }
     
     it "edits a blog post correctly" do
       get :edit, id: blog_post.id
     
-      response.should render_template :edit
-      assigns(:blog_post).should == blog_post
+      expect(response).to            render_template :edit
+      expect(assigns(:blog_post)).to eq blog_post
     end
 
     it 'updates a blog post correctly' do
       patch :update, id: blog_post.id, blog_post: { title: 'Fred', content: 'Test' }
     
-      response.should redirect_to blog_posts_path
-      assigns(:blog_post).should == blog_post
+      expect(response).to            redirect_to blog_posts_path
+      expect(assigns(:blog_post)).to eq blog_post
     end
   end
 
-  it 'deletes a blog post correctly' do
-    expect {
-      delete :destroy, id: BlogPost.first
-    }.to change { BlogPost.count }
-  end    
+  context "when destroying" do
+    it 'deletes a blog post correctly' do
+      expect {
+        delete :destroy, id: BlogPost.first
+      }.to change { BlogPost.count }
+    end
+  end
 end

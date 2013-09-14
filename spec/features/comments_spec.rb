@@ -16,7 +16,6 @@ feature 'Comments' do
    expect(page).to have_content( "1 comment" )
   end  
   
-  
   scenario 'I want to add a bad comment to an article', driver: :webkit do
    visit blog_posts_path
    post = BlogPost.first
@@ -24,6 +23,6 @@ feature 'Comments' do
    find(:css, "#summary_blog_post_#{post.id}" ).click
    click_button( "add-comment-#{post.id}" )
 
-   page.should have_selector('div.alert-error')                        
+   expect(page).to have_selector('div.alert-error')                        
   end  
 end

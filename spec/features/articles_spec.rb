@@ -30,7 +30,7 @@ feature 'Articles' do
       click_link 'New post'
       click_button 'Update'
     
-      page.should have_selector('div.alert-error')                        
+      expect(page).to have_selector('div.alert-error')                        
     end
     
     scenario 'I want to edit an article' do
@@ -52,7 +52,7 @@ feature 'Articles' do
       fill_in 'Title'  , with: ""
       click_button 'Update'
     
-      page.should have_selector('div.alert-error')                        
+      expect(page).to have_selector('div.alert-error')                        
     end
     
     scenario 'I want to delete an article' do

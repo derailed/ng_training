@@ -1,4 +1,13 @@
 =form_for([blog_post, blog_post.comments.build]) do |f|
+  -if @comment and @comment.errors.any?
+    .alert.alert-error{ id: 'error_explanation' }
+      %button.close{ 'type'=>'button', 'data-dismiss'=>'alert' }
+        &times;
+      %span The following errors prevented this comment from being saved:
+      %ul
+        -@comment.errors.full_messages.each do |msg|
+          %li= msg
+
   =f.hidden_field :blog_post_id
   .input-append
     =f.text_area :content, 

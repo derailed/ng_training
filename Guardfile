@@ -3,7 +3,7 @@ guard 'bundler' do
   watch(/^.+\.gemspec/)
 end
 
-guard :rspec, zeus: true, cli: "--color --format nested --fail-fast --drb" do
+guard :rspec, zeus: true, cli: "--color --format Fuubar --fail-fast --drb" do
   watch('spec/spec_helper.rb')                        { "spec" }
   watch('config/routes.rb')                           { "spec/routing" }
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }

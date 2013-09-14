@@ -15,7 +15,11 @@ end
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-RSpec.configure do |config|  
+RSpec.configure do |config|
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
+    
   config.mock_with :rspec
     
   config.include FactoryGirl::Syntax::Methods
