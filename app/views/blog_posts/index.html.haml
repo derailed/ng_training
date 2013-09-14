@@ -1,14 +1,14 @@
 .row-fluid
-  .row.heading.span12
+  .row.heading.span11
     %h1.span10 Bro's happenings...
     = link_to 'New post', new_blog_post_path, class: "btn btn-default pull-right"
       
-  .row.span12
+  .row.span11
     %ul.posts
       - @blog_posts.each do |blog_post|
         %li
           .row
-            %h2.span10
+            %h2.span9
               %span.icon-quote-left
               = majusculize blog_post.title
       

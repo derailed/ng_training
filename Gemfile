@@ -22,8 +22,10 @@ group :test do
   gem 'factory_girl_rails'     , '~> 4.2.1'
   gem 'database_cleaner'       , '~> 1.1.1'
   gem 'capybara'               , '~> 2.1.0'
-  gem 'selenium-webdriver'
-    
+  gem 'capybara-webkit'        , '~> 1.0.0'  
+  gem 'selenium-webdriver'     , '~> 2.35.0'
+  gem 'simplecov'              , '~> 0.7.1'
+  
   gem 'rb-fsevent'
   gem 'guard-rspec'
   gem 'guard-zeus'

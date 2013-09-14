@@ -1,9 +1,9 @@
-= form_for(@blog_post) do |f|
-  - if @blog_post.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@blog_post.errors.count, 'error') 
-        %span "prohibited this blog_post from being saved:"
+=form_for(@blog_post) do |f|
+  -if @blog_post.errors.any?
+    .alert.alert-error{ id: 'error_explanation' }
+      %button.close{ 'type'=>'button', 'data-dismiss'=>'alert' }
+        &times;
+      %span The following errors prevented this post from being saved:
       %ul
         -@blog_post.errors.full_messages.each do |msg|
           %li= msg

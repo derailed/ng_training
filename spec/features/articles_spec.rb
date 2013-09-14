@@ -23,6 +23,15 @@ feature 'Articles' do
     
       expect(page).to have_content( "COOL DUDE!" )
     end
+
+    scenario 'I fail to create a new article' do
+      visit blog_posts_path
+    
+      click_link 'New post'
+      click_button 'Update'
+    
+      page.should have_selector('div.alert-error')                        
+    end
     
     scenario 'I want to edit an article' do
       visit blog_posts_path          
@@ -33,6 +42,17 @@ feature 'Articles' do
       click_button 'Update'
     
       expect(page).to have_content( "FRED!!" )
+    end
+
+    scenario 'I fail to edit an article' do
+      visit blog_posts_path          
+      expect(page).to have_content( "FRED" )        
+      
+      click_link( "ed_blog_post_#{article.id}" )
+      fill_in 'Title'  , with: ""
+      click_button 'Update'
+    
+      page.should have_selector('div.alert-error')                        
     end
     
     scenario 'I want to delete an article' do

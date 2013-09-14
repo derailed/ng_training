@@ -6,7 +6,7 @@ FactoryGirl.find_definitions
 
 BlogPost.delete_all
 
-5.times do |i|
+10.times do |i|
   post = FactoryGirl.create(:blog_post)
   rand(5).times do
     post.comments << FactoryGirl.create(:comment)

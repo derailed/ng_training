@@ -9,6 +9,10 @@ require 'database_cleaner'
 require 'bundler'
 Bundler.require
 
+if ENV["COV"]
+  SimpleCov.start 
+end
+
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|  

@@ -22,7 +22,10 @@
               %li
                 =link_to content_tag( :i, "", class: 'icon-quote-left') + " Articles", blog_posts_path
 
-    #wrap
+    #wrap   
       %div.container
+        .alert{ style: 'display:none' }
+          %div#alert-message
+      
         = yield
         #push
