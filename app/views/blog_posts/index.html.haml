@@ -14,11 +14,11 @@
       
             .controls.span2
               = link_to content_tag( :i, "", class: 'icon-pencil'), edit_blog_post_path(blog_post), 
-                class:  "btn"
+                class:  "btn", id: "ed_#{dom_id(blog_post)}"
               = link_to content_tag( :i, "", class: 'icon-trash'), blog_post, 
                 method: :delete, 
                 data:   {confirm: 'Are you sure?'}, 
-                class:  "btn"
+                class:  "btn", id: "del_#{dom_id(blog_post)}"
              
           .row 
             .timestamp= time_ago_in_words( blog_post.created_at )
@@ -26,11 +26,11 @@
           .row
             .content.rounded= blog_post.content
                   
-          %div.comments{ 'ng-controller' => 'CommentsCtrl'}
-            .summary{ 'data-id'=>blog_post.id }
+          %div.comments{ 'id' => "comments_#{dom_id(blog_post)}" }
+            .summary{ 'id' => "summary_#{dom_id(blog_post)}", 'data-id'=>blog_post.id }
               %span.icon-comments
               %span.comment-count{ 'data-id'=>blog_post.id }= blog_post.comments.size
               %span= 'comment'.pluralize( blog_post.comments.size)
             %ul.comments{ 'data-id'=>blog_post.id, style:'display:none' }
               = render blog_post.comments.sort { |a,b| b.created_at <=> a.created_at }
-              = render partial: 'comments/form', locals: { blog_post: blog_post }
+              = render partial: 'blog/comments/form', locals: { blog_post: blog_post }
