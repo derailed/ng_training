@@ -19,7 +19,7 @@ $(document).on 'ready page:load', ->
       field = $('textarea#appendedInputButton')
       field.val( '' )
       field.focus()
-      tag_id = ".comment-count[data-id=#{comment.blog_post_id}]"
+      tag_id = ".comment-count[data-id=#{comment.commentable_id}]"
       $( tag_id ).html( parseInt( $(tag_id).html() ) + 1 )
       $( '#alert-message' ).html( 
         "<strong>Success!</strong> Your comment was added, bro." )
