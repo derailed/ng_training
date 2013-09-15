@@ -9,6 +9,9 @@ require 'database_cleaner'
 require 'bundler'
 Bundler.require
 
+FactoryGirl.definition_file_paths = [File.expand_path( "spec/factories", Common::Engine.root )]
+FactoryGirl.find_definitions 
+
 if ENV["COV"]
   SimpleCov.start 
 end

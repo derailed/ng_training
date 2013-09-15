@@ -13,7 +13,8 @@ if ENV["COV"]
   SimpleCov.start 
 end
 
-FactoryGirl.definition_file_paths = [File.expand_path( "spec/factories", Social::Engine.root )]
+FactoryGirl.definition_file_paths = [File.expand_path( "spec/factories", Social::Engine.root ),
+                                     File.expand_path( "spec/factories", Common::Engine.root )]
 FactoryGirl.find_definitions 
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -39,7 +40,7 @@ RSpec.configure do |config|
   config.before :suite do    
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
-    load "#{Social::Engine.root}/db/test_seeds.rb"
+    load "#{Common::Engine.root}/db/test_seeds.rb"
   end
   
   config.before(:each) do

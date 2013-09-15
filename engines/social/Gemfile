@@ -3,3 +3,5 @@ source "https://rubygems.org"
 gemspec
 
 gem 'haml', '~> 4.0.3'
+
+gem 'common', path: '../common'

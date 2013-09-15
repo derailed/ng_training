@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'common'                 , path: 'engines/common'
 gem 'social'                 , path: 'engines/social'
 
 gem 'rails'                  , '4.0.0'

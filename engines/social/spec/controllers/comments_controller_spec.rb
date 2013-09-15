@@ -11,7 +11,7 @@ describe Social::CommentsController do
           commentable_id:   blog_post.id, 
           content:          "Testing, Yo!"
         }, use_route: :social
-      }.to change { Social::Comment.count }
+      }.to change { Common::Comment.count }
   
       expect(response).to redirect_to polymorphic_path(BlogPost)
     end

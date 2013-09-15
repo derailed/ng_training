@@ -2080,3 +2080,151 @@ Completed 200 OK in 14ms (Views: 6.7ms | ActiveRecord: 0.3ms)
   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
   [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
   [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.1ms)[0m  [1mSELECT DATABASE() as db[0m
+  [1m[35m (2.7ms)[0m  select table_name from information_schema.views where table_schema = 'brog_test'
+  [1m[36m (2.7ms)[0m  [1mTRUNCATE TABLE `blog_posts`;[0m
+  [1m[35m (1.7ms)[0m  TRUNCATE TABLE `comments`;
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.1ms)[0m  [1mSELECT DATABASE() as db[0m
+  [1m[35m (2.1ms)[0m  select table_name from information_schema.views where table_schema = 'brog_test'
+  [1m[36m (2.7ms)[0m  [1mTRUNCATE TABLE `blog_posts`;[0m
+  [1m[35m (2.1ms)[0m  TRUNCATE TABLE `comments`;
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `blog_posts` (`content`, `created_at`, `title`, `updated_at`) VALUES ('Minus veniam ipsa cupiditate ut sunt explicabo omnis. Et sint et ea consectetur commodi facilis. Iure sint pariatur nemo. Non odit inventore velit delectus suscipit at.', '2013-09-15 20:03:27', 'Aut reprehenderit rerum odit.', '2013-09-15 20:03:27')
+Processing by Social::CommentsController#create as HTML
+  Parameters: {"comment"=>{"commentable_type"=>"BlogPost", "commentable_id"=>"1", "content"=>nil}}
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.2ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.1ms)[0m  [1mSELECT DATABASE() as db[0m
+  [1m[35m (1.8ms)[0m  select table_name from information_schema.views where table_schema = 'brog_test'
+  [1m[36m (2.8ms)[0m  [1mTRUNCATE TABLE `blog_posts`;[0m
+  [1m[35m (3.0ms)[0m  TRUNCATE TABLE `comments`;
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `blog_posts` (`content`, `created_at`, `title`, `updated_at`) VALUES ('Et est consequatur voluptatum distinctio. Nihil est unde eligendi ab deleniti ea. Non cupiditate consequatur quis et ea sapiente. Natus quibusdam magni nostrum iure. Et qui et sit vel.', '2013-09-15 20:03:57', 'Et beatae molestiae laborum.', '2013-09-15 20:03:57')[0m
+Processing by Social::CommentsController#create as HTML
+  Parameters: {"comment"=>{"commentable_type"=>"BlogPost", "commentable_id"=>"1", "content"=>"Testing, Yo!"}}
+Completed 500 Internal Server Error in 3ms
+  [1m[35m (0.4ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `blog_posts` (`content`, `created_at`, `title`, `updated_at`) VALUES ('Eaque perspiciatis cupiditate magni quo totam. Assumenda dolores et odit. Nobis velit blanditiis quia libero et. Et rerum iusto quidem aut quas voluptatibus.', '2013-09-15 20:03:57', 'Et qui doloremque dolor rerum.', '2013-09-15 20:03:57')
+Processing by Social::CommentsController#create as HTML
+  Parameters: {"comment"=>{"commentable_type"=>"BlogPost", "commentable_id"=>"2", "content"=>nil}}
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.6ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.2ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.1ms)[0m  [1mSELECT DATABASE() as db[0m
+  [1m[35m (2.2ms)[0m  select table_name from information_schema.views where table_schema = 'brog_test'
+  [1m[36m (2.6ms)[0m  [1mTRUNCATE TABLE `blog_posts`;[0m
+  [1m[35m (2.0ms)[0m  TRUNCATE TABLE `comments`;
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `blog_posts` (`content`, `created_at`, `title`, `updated_at`) VALUES ('Facilis labore dolor quod ea. Pariatur quaerat molestiae repellat corrupti. Aliquam vitae commodi consequatur quis quo veniam exercitationem. Dolores deserunt quia amet facere at facilis quos.', '2013-09-15 20:04:32', 'Aperiam expedita id molestias dolorum fugiat nihil.', '2013-09-15 20:04:32')[0m
+Processing by Social::CommentsController#create as HTML
+  Parameters: {"comment"=>{"commentable_type"=>"BlogPost", "commentable_id"=>"1", "content"=>"Testing, Yo!"}}
+  [1m[35mBlogPost Load (0.3ms)[0m  SELECT `blog_posts`.* FROM `blog_posts` WHERE `blog_posts`.`id` = 1 ORDER BY `blog_posts`.`id` ASC LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `comments` (`commentable_id`, `commentable_type`, `content`, `created_at`, `updated_at`) VALUES (1, 'BlogPost', 'Testing, Yo!', '2013-09-15 20:04:32', '2013-09-15 20:04:32')[0m
+Redirected to http://test.host/blog_posts
+Completed 302 Found in 12ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`
+  [1m[36m (0.4ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `blog_posts` (`content`, `created_at`, `title`, `updated_at`) VALUES ('Rerum voluptatem corrupti deserunt amet sequi. Qui qui eos et culpa temporibus quia. Culpa exercitationem aut hic. Odio dolores voluptatibus et fuga et natus.', '2013-09-15 20:04:32', 'Voluptatem et repudiandae maiores.', '2013-09-15 20:04:32')[0m
+Processing by Social::CommentsController#create as HTML
+  Parameters: {"comment"=>{"commentable_type"=>"BlogPost", "commentable_id"=>"2", "content"=>nil}}
+  [1m[35mBlogPost Load (0.2ms)[0m  SELECT `blog_posts`.* FROM `blog_posts` WHERE `blog_posts`.`id` = 2 ORDER BY `blog_posts`.`id` ASC LIMIT 1
+Completed 200 OK in 12ms (Views: 5.6ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.1ms)[0m  [1mSELECT DATABASE() as db[0m
+  [1m[35m (0.8ms)[0m  select table_name from information_schema.views where table_schema = 'brog_test'
+  [1m[36m (2.7ms)[0m  [1mTRUNCATE TABLE `blog_posts`;[0m
+  [1m[35m (2.7ms)[0m  TRUNCATE TABLE `comments`;
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `blog_posts` (`content`, `created_at`, `title`, `updated_at`) VALUES ('Magnam sequi exercitationem nemo ducimus in sunt illum. Ut et laboriosam quis. Voluptatem ullam vel sed consequatur ea suscipit est.', '2013-09-15 20:24:04', 'Ea voluptatum aut porro quia laudantium.', '2013-09-15 20:24:04')[0m
+Processing by Social::CommentsController#create as HTML
+  Parameters: {"comment"=>{"commentable_type"=>"BlogPost", "commentable_id"=>"1", "content"=>"Testing, Yo!"}}
+  [1m[35mBlogPost Load (0.4ms)[0m  SELECT `blog_posts`.* FROM `blog_posts` WHERE `blog_posts`.`id` = 1 ORDER BY `blog_posts`.`id` ASC LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `comments` (`commentable_id`, `commentable_type`, `content`, `created_at`, `updated_at`) VALUES (1, 'BlogPost', 'Testing, Yo!', '2013-09-15 20:24:04', '2013-09-15 20:24:04')[0m
+Redirected to http://test.host/blog_posts
+Completed 302 Found in 14ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `blog_posts` (`content`, `created_at`, `title`, `updated_at`) VALUES ('Occaecati sit aspernatur nihil harum quia eligendi dolorem. Eos quam architecto voluptas. Expedita omnis voluptatum est aut corrupti iusto. Ut vel qui sunt sed quod.', '2013-09-15 20:24:04', 'At consectetur sit sed omnis ex vitae ea.', '2013-09-15 20:24:04')[0m
+Processing by Social::CommentsController#create as HTML
+  Parameters: {"comment"=>{"commentable_type"=>"BlogPost", "commentable_id"=>"2", "content"=>nil}}
+  [1m[35mBlogPost Load (0.3ms)[0m  SELECT `blog_posts`.* FROM `blog_posts` WHERE `blog_posts`.`id` = 2 ORDER BY `blog_posts`.`id` ASC LIMIT 1
+Completed 200 OK in 13ms (Views: 7.2ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK

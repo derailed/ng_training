@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Social::Comment do
+describe Common::Comment do
   describe '-relationships' do
     it { should belong_to :commentable }
   end

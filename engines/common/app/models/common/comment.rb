@@ -1,4 +1,4 @@
-class Social::Comment < ActiveRecord::Base
+class Common::Comment < ActiveRecord::Base
   self.table_name = :comments
   
   # Relationships...

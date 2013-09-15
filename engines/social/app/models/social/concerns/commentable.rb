@@ -3,6 +3,6 @@ module Social::Concerns::Commentable
   
   included do    
     # Relationships...
-    has_many :comments, as: :commentable, dependent: :destroy, class_name: Social::Comment
+    has_many :comments, as: :commentable, dependent: :destroy, class_name: Common::Comment
   end
 end

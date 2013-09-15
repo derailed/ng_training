@@ -5,8 +5,4 @@ FactoryGirl.define do
     post.title   { Faker::Lorem.sentence }
     post.content { Faker::Lorem.paragraph }
   end
-  
-  factory :comment, class: Social::Comment do |c|
-    c.content { Faker::Lorem.paragraph }
-  end
 end
