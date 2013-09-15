@@ -9,7 +9,7 @@ BlogPost.delete_all
 10.times do |i|
   post = FactoryGirl.create(:blog_post)
   rand(5).times do
-    post.comments << FactoryGirl.create(:comment)
+    post.comments.create( content: FactoryGirl.build(:comment).content )
   end
   post.created_at = Time.now - (rand(i+100)* 60*60*i)
   post.save  

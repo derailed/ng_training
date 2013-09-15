@@ -22,7 +22,7 @@ feature 'Comments' do
    
    find(:css, "#summary_blog_post_#{post.id}" ).click
    click_button( "add-comment-#{post.id}" )
-
+  
    expect(page).to have_selector('div.alert-error')                        
   end  
 end

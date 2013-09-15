@@ -1,5 +1,10 @@
 class Comment < ActiveRecord::Base
-  belongs_to :blog_post
+  # Relationships...
+  belongs_to :commentable, polymorphic: true
   
-  validates_presence_of :content
+  # Validations...
+  validates_presence_of :content, :commentable
+  
+  # Scope...
+  scope :sort_recent, -> { sort( created_at: :desc ) }
 end

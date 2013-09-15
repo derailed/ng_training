@@ -46,12 +46,11 @@ describe BlogPostsController do
       expect(response).to            redirect_to blog_posts_path
       expect(assigns(:blog_post)).to eq blog_post
     end
-  end
 
-  context "when destroying" do
     it 'deletes a blog post correctly' do
+      blog_post.comments.create( content: "Test" )
       expect {
-        delete :destroy, id: BlogPost.first
+        delete :destroy, id: blog_post.id
       }.to change { BlogPost.count }
     end
   end
