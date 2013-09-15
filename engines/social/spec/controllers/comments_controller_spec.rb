@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe Social::CommentsController do  
   context "when editing" do
     let(:blog_post) { create :blog_post }

@@ -2080,3 +2080,60 @@ Completed 200 OK in 14ms (Views: 6.7ms | ActiveRecord: 0.3ms)
   [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
   [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
   [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.1ms)[0m  [1mSELECT DATABASE() as db[0m
+  [1m[35m (0.7ms)[0m  select table_name from information_schema.views where table_schema = 'brog_test'
+  [1m[36m (2.5ms)[0m  [1mTRUNCATE TABLE `blog_posts`;[0m
+  [1m[35m (2.3ms)[0m  TRUNCATE TABLE `comments`;
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `blog_posts` (`content`, `created_at`, `title`, `updated_at`) VALUES ('Vero et ipsam quos. Odio dolores et adipisci eum. Nostrum suscipit incidunt ab excepturi quis debitis vel laboriosam.', '2013-09-15 22:24:48', 'Quia voluptatum recusandae atque voluptatibus expedita minima est.', '2013-09-15 22:24:48')[0m
+Processing by Social::CommentsController#create as HTML
+  Parameters: {"comment"=>{"commentable_type"=>"BlogPost", "commentable_id"=>"1", "content"=>"Testing, Yo!"}}
+  [1m[35mBlogPost Load (0.3ms)[0m  SELECT `blog_posts`.* FROM `blog_posts` WHERE `blog_posts`.`id` = 1 ORDER BY `blog_posts`.`id` ASC LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `comments` (`commentable_id`, `commentable_type`, `content`, `created_at`, `updated_at`) VALUES (1, 'BlogPost', 'Testing, Yo!', '2013-09-15 22:24:48', '2013-09-15 22:24:48')[0m
+Redirected to http://test.host/blog_posts
+Completed 302 Found in 60ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`
+  [1m[36m (0.6ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `blog_posts` (`content`, `created_at`, `title`, `updated_at`) VALUES ('Aliquam est minima porro nobis enim laudantium magni labore. Voluptas soluta eum quia. Quaerat qui perspiciatis molestiae. Consequatur itaque nihil consectetur id nam in officiis.', '2013-09-15 22:24:48', 'Hic ipsam maxime voluptatem molestiae.', '2013-09-15 22:24:48')[0m
+Processing by Social::CommentsController#create as HTML
+  Parameters: {"comment"=>{"commentable_type"=>"BlogPost", "commentable_id"=>"2", "content"=>nil}}
+  [1m[35mBlogPost Load (0.2ms)[0m  SELECT `blog_posts`.* FROM `blog_posts` WHERE `blog_posts`.`id` = 2 ORDER BY `blog_posts`.`id` ASC LIMIT 1
+Completed 200 OK in 12ms (Views: 6.5ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
