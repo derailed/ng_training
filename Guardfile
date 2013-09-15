@@ -4,12 +4,15 @@ guard 'bundler' do
 end
 
 guard :rspec, zeus: true, cli: "--color --format Fuubar --fail-fast --drb" do
-  watch('spec/spec_helper.rb')                        { "spec" }
-  watch('config/routes.rb')                           { "spec/routing" }
-  watch('app/controllers/application_controller.rb')  { "spec/controllers" }
+  watch('spec/spec_helper.rb')                              { "spec" }
+  watch('config/routes.rb')                                 { "spec/routing" }
+  watch('app/controllers/application_controller.rb')        { "spec/controllers" }
+  watch('app/assets/(.+)/(.+)(\.css|\.scss|\.js|\.coffee)') { "spec/features" } 
+  watch('app/helpers/(.+)/(.+)_helper.rb')                  { |m| "spec/helpers/#{m[2]}_helper_spec.rb" }
   watch(%r{^spec/.+_spec\.rb$})
-  watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
-  watch(%r{^app/(.*)(\.erb|\.haml|\.slim)$})          { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
-  watch(%r{^lib/(.+)\.rb$})                           { |m| "spec/lib/#{m[1]}_spec.rb" }
-  watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
+  watch(%r{^app/(.+)\.rb$})                                 { |m| "spec/#{m[1]}_spec.rb" }
+  watch(%r{^app/(.*)(\.erb|\.haml|\.slim)$})                { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
+  watch(%r{^lib/(.+)\.rb$})                                 { |m| "spec/lib/#{m[1]}_spec.rb" }
+  watch(%r{^app/(.+)/(.+)_controller\.rb$})                 { |m| ["spec/controllers/#{m[2]}_controller_spec.rb",
+                                                                   "spec/features/#{m[2]}_spec.rb"] }
 end

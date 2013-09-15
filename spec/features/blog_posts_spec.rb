@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Articles' do  
+feature 'BlogPosts' do  
   
   scenario 'I want to see all available articles' do
    visit root_path
@@ -19,7 +19,7 @@ feature 'Articles' do
       click_link 'New post'
       fill_in 'Title'  , with: "Cool dude!"
       fill_in 'Content', with: "Bumble Bee Tuna"
-      click_button 'Update'
+      click_button 'Create'
     
       expect(page).to have_content( "COOL DUDE!" )
     end
@@ -28,7 +28,7 @@ feature 'Articles' do
       visit blog_posts_path
     
       click_link 'New post'
-      click_button 'Update'
+      click_button 'Create'
     
       expect(page).to have_selector('div.alert-error')                        
     end

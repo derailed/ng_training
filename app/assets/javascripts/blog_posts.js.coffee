@@ -1,7 +1,7 @@
 $(document).on 'ready page:load', ->
   $( '.summary' ).click ->
     $( "ul.comments[data-id=#{$(this).attr( 'data-id' )}]" ).fadeToggle()
-    
+        
   $( 'form.new_comment' ).submit (evt)->
     evt.preventDefault()
     data = $(this).serialize();
