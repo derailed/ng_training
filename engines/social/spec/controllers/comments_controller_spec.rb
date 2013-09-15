@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CommentsController do  
+describe Social::CommentsController do  
   context "when editing" do
     let(:blog_post) { create :blog_post }
   
@@ -9,19 +9,19 @@ describe CommentsController do
         post :create, comment: { 
           commentable_type: BlogPost, 
           commentable_id:   blog_post.id, 
-          content:          "Testing, Yo!" 
-        }
-      }.to change { Comment.count }
+          content:          "Testing, Yo!"
+        }, use_route: :social
+      }.to change { Social::Comment.count }
   
-      expect(response).to redirect_to blog_posts_path    
+      expect(response).to redirect_to polymorphic_path(BlogPost)
     end
   
     it 'does not allow invalid comments' do
       post :create, comment: { 
-        commentable_type: BlogPost, 
-        commentable_id:   blog_post.id, 
-        content:          nil 
-      }
+        commentable_type: BlogPost,
+        commentable_id:   blog_post.id,
+        content:          nil
+      }, use_route: :social
       
       expect(response).to render_template :new
       expect(assigns(:comment).errors.messages).to have(1).item

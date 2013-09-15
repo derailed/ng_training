@@ -1,4 +1,6 @@
-class Comment < ActiveRecord::Base
+class Social::Comment < ActiveRecord::Base
+  self.table_name = :comments
+  
   # Relationships...
   belongs_to :commentable, polymorphic: true
   

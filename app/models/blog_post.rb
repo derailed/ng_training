@@ -1,5 +1,5 @@
 class BlogPost < ActiveRecord::Base
-  include Commentable
+  include Social::Concerns::Commentable
   
   # Validations...
   validates_presence_of :title, :content

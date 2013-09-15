@@ -1,6 +1,8 @@
 class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
 
+  helper Social::CommentsHelper
+  
   def index
     @blog_posts = BlogPost.includes(:comments).sort_recent
   end

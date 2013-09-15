@@ -32,5 +32,6 @@
               %span.comment-count{ 'data-id'=>blog_post.id }= blog_post.comments.size
               %span= 'comment'.pluralize( blog_post.comments.size)
             %ul.comments{ 'data-id'=>blog_post.id, style:'display:none' }
-              =render blog_post.comments.sort { |a,b| b.created_at <=> a.created_at }
-              =render partial: 'comments/form', locals: { blog_post: blog_post }
+              =render partial: 'social/comments/comment', 
+                collection: blog_post.comments.sort { |a,b| b.created_at <=> a.created_at }
+              =render partial: 'social/comments/form', locals: { blog_post: blog_post }

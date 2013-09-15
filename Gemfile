@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'social'                 , path: 'engines/social'
+
 gem 'rails'                  , '4.0.0'
 
 gem 'mysql2'                 , '~> 0.3.13'
